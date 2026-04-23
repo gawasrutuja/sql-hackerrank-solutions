@@ -1,0 +1,23 @@
+/*
+PROBLEM: The Report
+LINK: https://www.hackerrank.com/challenges/the-pads/problem?isFullScreen=true
+APPROACH: 
+1. Concatenate the list of all names in OCCUPATIONS, followed by first letter of occupation inside brackets (for example: Name (P))
+2. to count the number of professiona and order them alphabetically
+*/
+
+
+/* to concat the name of person with their occupations 1st letter in brackets*/
+select 
+CONCAT(Name, '(', SUBSTRING(Occupation,1,1), ')')  as name
+from OCCUPATIONS
+order by name
+;
+
+/* to count the number of occupations and order them alphabetically*/
+SELECT
+CONCAT('There are a total of ', count(Occupation), ' ', lower(Occupation), 's.')
+FROM OCCUPATIONS
+GROUP BY Occupation
+ORDER BY count(Occupation) asc, Occupation asc
+;
