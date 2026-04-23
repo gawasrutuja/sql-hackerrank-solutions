@@ -3,7 +3,7 @@ PROBLEM: The Report
 LINK: https://www.hackerrank.com/challenges/the-pads/problem?isFullScreen=true
 APPROACH: 
 1. Concatenate the list of all names in OCCUPATIONS, followed by first letter of occupation inside brackets (for example: Name (P))
-2. to count the number of professiona and order them alphabetically
+2. Count the number of professions and order them alphabetically
 */
 
 
