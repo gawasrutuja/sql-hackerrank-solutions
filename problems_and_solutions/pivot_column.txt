@@ -1,0 +1,27 @@
+/*
+PROBLEM: The Report
+LINK: https://www.hackerrank.com/challenges/occupations/problem?isFullScreen=true
+APPROACH: 
+1. Rank Names: Rank names for each occupation in alphabetical order
+2. Pivot Columns: Create columns for each profession using MAX(CASE WHEN ...) logic.
+3. Align Rows: Group by the rank to pull all "1st," "2nd," etc., names onto the same row.
+4. Sort & Fill: Order by rank to keep the list sequential, with NULL filling gaps where occupations have fewer people.
+*/
+
+with pivot_cal as
+(
+SELECT
+Name,
+Occupation,
+ROW_NUMBER() over(partition by Occupation Order by Name) as rnk
+from OCCUPATIONS
+)
+
+select 
+Max(case when Occupation= 'Doctor' then Name else Null end),
+MAX(case when Occupation= 'Professor' then Name else Null end),
+MAX(case when Occupation= 'Singer' then Name else Null end),
+MAX(case when Occupation= 'Actor' then Name else Null end)
+from pivot_cal
+group by rnk
+;
