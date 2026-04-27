@@ -1,0 +1,18 @@
+/*
+PROBLEM: The Report
+LINK: https://www.hackerrank.com/challenges/binary-search-tree-1/problem?isFullScreen=true
+APPROACH: 
+1. Identify Root: A node is a Root if its parent ID (P) is NULL.
+2. Identify Inner: A node is Inner if its ID exists in the parent column
+3. Identify Leaf: Any node that doesn't fit the above two categories is a Leaf.
+*/
+
+SELECT
+N,
+case when P is Null then 'Root'
+     when N IN (select P from BST where P is not null) then 'Inner'
+     else 'Leaf'
+     end as Tree
+from BST
+order by N
+;
