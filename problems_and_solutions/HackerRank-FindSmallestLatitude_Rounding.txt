@@ -1,0 +1,21 @@
+Question ->
+Query the smallest Northern Latitude (LAT_N) from STATION that is greater than x. Round your answer to  decimal places.
+
+
+Table -> Station
+ID: Number
+CITY: varchar2(21)
+STATE: varchar2(2)
+LAT_N: number
+LONG_W: Number
+
+################################################################################
+
+SOLUTION ->
+SELECT
+round(LAT_N,4)
+FROM STATION
+where LAT_N > 38.7780
+ORDER by LAT_N ASC
+LIMIT 1
+;
